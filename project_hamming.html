@@ -8172,6 +8172,7 @@ $$</p>
 s = (i_{r-1} \dots i_0)_2,
 $$</p>
 <p>cioè coincide esattamente con la rappresentazione binaria della posizione in cui si è verificato l’errore.</p>
+<p>Un metodo equivalente ed elegante di interpretare il calcolo della sindrome si ottiene sommando con modulo 2 le posizioni dei bit del messaggio che contengono un 1. In questo modo con una semplice somma su $r$ bit si ottiene la posizione dell'errore.</p>
 </div>
 </div>
 </div>
@@ -8427,7 +8428,7 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Costo-in-tempo">Costo in tempo<a class="anchor-link" href="#Costo-in-tempo">¶</a></h2><p>In questa trattazione viene separato l'algoritmo nella codifica e nella decodifica. Verrà scritto lo pseudocodice di entrambe le fasi e analizzati i rispettivi costi in tempo.</p>
+<h2 id="Costo-in-tempo">Costo in tempo<a class="anchor-link" href="#Costo-in-tempo">¶</a></h2><p>In questa trattazione viene separato l'algoritmo nella codifica e nella decodifica. Verrà scritto lo pseudocodice di entrambe le fasi e analizzati i rispettivi costi in tempo considerando le operazioni elementari a livello di singolo bit.</p>
 <h3 id="Codifica">Codifica<a class="anchor-link" href="#Codifica">¶</a></h3><p>L'algoritmo di codifica prende in input $k$ bit informativi e il numero di bit di parità $r$, e genera un blocco di lunghezza $n$ che rispetta i parity check da inviare.</p>
 <div class="highlight"><pre><span></span>Algorithm EncodeHamming(m, r)
 
@@ -8644,6 +8645,7 @@ $$</p>
 T(n) = T_1(n) + T_2(n) + T_3(n) = \Theta \big(n \log n \big)
 $$</p>
 <p>Quindi la decodifica ha lo stesso ordine asintotico della codifica, e in questo caso il calcolo della sindrome è il termine dominante.</p>
+<p>Il costo sulle macchine moderne (ad esempio a 64bit) si può ridurre $\Theta (n)$ in quanto le operazioni come la somma di numeri binari di lunghezza $r$ è costante e non va come $\log_2(n)$.</p>
 <hr/>
 </div>
 </div>
